@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://pyscript.net/releases/2024.3.1/core.css">
+  <script type="module" src="https://pyscript.net/releases/2024.3.1/core.js"></script>
+  <title>Science Club - Member Database</title>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --card-bg: #1e293b;
+      --accent-green: #10b981;
+      --accent-cyan: #06b6d4;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-glow: #0284c7;
+    }
+
+    body {
+      font-family: 'Courier New', Courier, monospace, sans-serif;
+      background-color: var(--bg-dark);
+      background-image:
+        radial-gradient(circle at 50% 20%, rgba(6, 182, 212, 0.15) 0%, transparent 50%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 100%, 30px 30px, 30px 30px;
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-main);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 380px;
+      padding: 20px;
+    }
+
+    .club-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .club-header h2 {
+      margin: 0;
+      font-size: 22px;
+      letter-spacing: 2px;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+    }
+
+    .club-header p {
+      margin: 5px 0 0;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    form {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(6, 182, 212, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      width: 100%;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    /* Decorative laboratory badge line */
+    form::before {
+      content: "🔬 LAB DATABASE SEARCH";
+      display: block;
+      font-size: 10px;
+      font-weight: bold;
+      color: var(--accent-green);
+      letter-spacing: 1.5px;
+      margin-bottom: 5px;
+      border-bottom: 1px dashed var(--accent-green);
+      padding-bottom: 8px;
+    }
+
+    input[type="text"] {
+      padding: 12px 15px;
+      background-color: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--text-main);
+      font-family: inherit;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input[type="text"]::placeholder {
+      color: #64748b;
+    }
+
+    input[type="text"]:focus {
+      border-color: var(--accent-cyan);
+      box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+    }
+
+    input[type="button"] {
+      background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+      color: #0f172a;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      font-family: inherit;
+      letter-spacing: 1px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    input[type="button"]:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(6, 182, 212, 0.5);
+    }
+
+    input[type="button"]:active {
+      transform: scale(0.98);
+    }
+
+    #div1 {
+      margin-top: 25px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+      color: var(--accent-green);
+      min-height: 24px;
+      padding: 10px;
+      border-radius: 8px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      width: 100%;
+      box-sizing: border-box;
+      text-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="club-header">
+      <h2>🧪 Science Club</h2>
+      <p>Member Query System</p>
+    </div>
+
+    <form>
+      <input type="text" id="fname" placeholder="Enter first name...">
+      <input type="text" id="lname" placeholder="Enter last name...">
+      <input type="button" py-click="get_name" value="🔍 Run Query">
+    </form>
+
+    <div id="div1"></div>
+  </div>
+
+  <py-script src="main.py"></py-script>
+</body>
+</html>
+</html>
